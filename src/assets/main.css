@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+@import './base.css';
+@import 'tailwindcss';
+
+@theme {
+  --default-font-family: 'Teachers', sans-serif; /* Replace "YourFontName" with your desired font */
+  --color-primary: #15bfbf;
+  --color-button-bg: #283f40;
+  --color-background: #252626;
+  --color-accent: #d94814;
+  --color-lettering: #d9d9d9;
+  --color-lettering-dark: #8c8c8c;
+}
