@@ -1,5 +1,38 @@
 <template>
   <h1 class="text-primary font-bold text-6xl text-center">Experience</h1>
+  <div class="px-5 py-2 border-2 border-accent rounded-2xl mt-5">
+    <div class="grid sm:grid-cols-[auto_1fr] xl:grid-cols-3 gap-x-4 gap-y-10 my-10 text-xl">
+      <div class="flex flex-col">
+        <p class="text-lettering font-bold">Frontend & UI/UX</p>
+        <p class="text-lettering-dark">Vue 3, TailwindCSS 4, Vite</p>
+        <p class="text-lettering">
+          Passionate about crafting responsive, high-performance interfaces. I specialize in modern
+          UI/UX implementation, utilizing the speed of Vite and the flexibility of Tailwind CSS 4 to
+          build intuitive user experiences.
+        </p>
+      </div>
+
+      <div class="flex flex-col">
+        <p class="text-lettering font-bold">Backend Engineering</p>
+        <p class="text-lettering-dark">Go (Golang), Java, System Design</p>
+        <p class="text-lettering">
+          Experienced in architecting robust, scalable server-side solutions. My focus is on
+          efficient backend system design and implementation using Go, ensuring reliability in
+          complex, data-driven environments.
+        </p>
+      </div>
+
+      <div class="flex flex-col">
+        <p class="text-lettering font-bold">Full Stack Development</p>
+        <p class="text-lettering-dark">End-to-End, Architecture, Docker</p>
+        <p class="text-lettering">
+          Bridging the gap between design and functionality. I provide complete design and
+          implementation capabilities, managing the entire lifecycle from database structure to the
+          final pixel on the screen.
+        </p>
+      </div>
+    </div>
+  </div>
   <!-- Wrapper with relative positioning for the absolute line -->
   <div class="relative">
     <!-- Single continuous gradient line -->

@@ -5,6 +5,7 @@ import About from './views/AboutView.vue'
 import Nav from './components/Nav.vue'
 import Media from './components/Media.vue'
 import Experience from './views/ExperienceView.vue'
+import Blog from './views/BlogView.vue'
 </script>
 
 <template>
@@ -13,12 +14,15 @@ import Experience from './views/ExperienceView.vue'
       <Media></Media>
       <Nav></Nav>
     </header>
-    <Splash msg="Art In The Making" />
-    <section class="mt-150">
+    <Splash msg="Art In The Making" id="home" />
+    <section class="mt-150" id="about">
       <About></About>
     </section>
-    <section class="mt-50">
+    <section class="mt-50" id="experience">
       <Experience></Experience>
+    </section>
+    <section class="mt-50" id="blog">
+      <Blog></Blog>
     </section>
   </div>
 </template>
