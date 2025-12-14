@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const home = ref('./Home ')
 const about = ref(' About Me ')
@@ -33,6 +33,37 @@ const updateMenuItem = (name) => {
     active.value = 'blog'
   }
 }
+
+let observer = null
+
+onMounted(() => {
+  const sections = document.querySelectorAll('section[id], #home')
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  }
+
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id
+        updateMenuItem(sectionId)
+      }
+    })
+  }, observerOptions)
+
+  sections.forEach((section) => {
+    observer.observe(section)
+  })
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
 </script>
 
 <template>

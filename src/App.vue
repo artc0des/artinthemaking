@@ -1,5 +1,4 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
 import Splash from './components/Splash.vue'
 import About from './views/AboutView.vue'
 import Nav from './components/Nav.vue'
@@ -14,14 +13,14 @@ import Blog from './views/BlogView.vue'
       <Media></Media>
       <Nav></Nav>
     </header>
-    <Splash msg="Art In The Making" id="home" />
+    <Splash class="pb-150" msg="Art In The Making" id="home" />
     <section class="mt-150" id="about">
       <About></About>
     </section>
     <section class="mt-50" id="experience">
       <Experience></Experience>
     </section>
-    <section class="mt-50" id="blog">
+    <section class="mt-50 pb-50" id="blog">
       <Blog></Blog>
     </section>
   </div>
