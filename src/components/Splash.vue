@@ -28,12 +28,12 @@ onMounted(() => {
 <template>
   <div>
     <img
-      class="relative transition duration-1000"
+      class="hidden xl:block relative transition duration-1000"
       :class="{ 'opacity-0': !showBG, 'opacity-30': showBG }"
       :src="BgImage"
       alt=""
     />
-    <div class="absolute top-10 left-70 pt-65 transition duration-1000 z-50" id="splash">
+    <div class="xl:absolute top-10 left-70 pt-65 transition duration-1000 z-50" id="splash">
       <h1
         class="transition duration-1000 text-primary font-bold text-8xl text-center"
         :class="{ 'opacity-0': !showTitle, 'opacity-100': showTitle }"

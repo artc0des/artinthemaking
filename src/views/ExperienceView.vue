@@ -3,10 +3,14 @@ import ExperienceBG from '../assets/experience_bg.png'
 </script>
 <template>
   <h1 class="text-primary font-bold text-6xl text-center">Experience</h1>
-  <div class="relative">
-    <img class="absolute inset-0 top-50 object-cover opacity-15" :src="ExperienceBG" alt="" />
+  <div class="xl:relative">
+    <img
+      class="hidden xl:block absolute inset-0 top-50 object-cover opacity-15"
+      :src="ExperienceBG"
+      alt=""
+    />
     <div class="px-5 py-2 border-2 border-accent rounded-2xl mt-5">
-      <div class="grid sm:grid-cols-[auto_1fr] xl:grid-cols-3 gap-x-4 gap-y-10 my-10 text-xl">
+      <div class="grid sm:grid-cols-1 xl:grid-cols-3 gap-x-4 gap-y-10 my-10 text-xl">
         <div class="flex flex-col">
           <p class="text-lettering font-bold">Frontend & UI/UX</p>
           <p class="text-lettering-dark">Vue 3, TailwindCSS 4, Vite</p>
