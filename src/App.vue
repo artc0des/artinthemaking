@@ -1,9 +1,7 @@
 <script setup>
-import Splash from './components/Splash.vue'
-import About from './views/AboutView.vue'
 import Nav from './components/Nav.vue'
 import Media from './components/Media.vue'
-import Experience from './views/ExperienceView.vue'
+import HomeWrapper from './views/HomeWrapper.vue'
 import Blog from './views/BlogView.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
@@ -56,21 +54,12 @@ onUnmounted(() => {
     :style="{ transform: `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)` }"
     aria-hidden="true"
   ></div>
-  <div class="container mx-auto">
-    <header class="flex justify-between sticky top-0 pt-5 z-70 bg-background">
+  <div class="container mx-auto px-4 md:px-6">
+    <header class="flex justify-between items-center sticky top-0 py-4 md:pt-5 z-70 bg-background">
       <Media></Media>
       <Nav></Nav>
     </header>
-    <Splash class="pb-150" msg="Art In The Making" id="home" />
-    <section class="mt-150" id="about">
-      <About></About>
-    </section>
-    <section class="mt-150" id="experience">
-      <Experience></Experience>
-    </section>
-    <section class="mt-150 pb-50" id="blog">
-      <Blog></Blog>
-    </section>
+    <RouterView></RouterView>
   </div>
 </template>
 
@@ -92,7 +81,9 @@ onUnmounted(() => {
   width: 1rem;
   aspect-ratio: 1;
   pointer-events: none;
-  transition: width 0.3s ease, background-color 0.3s ease;
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .center-expanded {

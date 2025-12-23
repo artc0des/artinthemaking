@@ -11,26 +11,25 @@ import AboutMeBG from '../assets/about_me_bg.png'
     <div class="">
       <h1 class="text-primary font-bold text-6xl text-center">About Me</h1>
       <p class="text-lettering text-xl mt-10">
-        I’m a product-focused creator who thinks about complete lifecycles—from how people will
-        actually use what I build to the systems that support seamless delivery. I tend to combine
-        technical depth with genuine empathy for users, organizing everything with accessibility and
-        clarity in mind. I’m believer in transformation and growth, and I’m motivated by clear goals
-        that align with a greater vision and results.<br /><br />
+        I’m a product-focused creator who thrives on the combination of creativity and organization
+        required to bring a vision to life. I still find joy in losing track of time while turning
+        complex ideas into clean, accessible solutions.<br /><br />
 
-        My technical foundation is strong—9 years working with both back-end and front-end
-        technologies along with system design experience across finance and real time data
-        monitoring applications. But what makes me different is how I approach problems. I’m a
-        creative at heart and I’ve learned to think about the complete user experience first. I
-        organize systems with accessibility in mind. I design with genuine empathy for the people
-        using what I create. I see technology as a tool to serve people, not as an end in itself.<br /><br />
+        Technically, I bring 9 years of experience in full-stack development, currently diving deep
+        into <span class="font-bold">Go </span>and <span class="font-bold">Vue.js</span>. My
+        background spans finance and real-time data monitoring, where I’ve learned that strong
+        system design means nothing without genuine empathy for the user. I don't just write code; I
+        think about the complete lifecycle—organizing systems with clarity and accessibility in
+        mind. I see technology as a tool to serve people, not an end in itself.<br /><br />
 
-        Right now, I'm diving deep into Go and Vue.js professionally while exploring the world of
-        app creation to help others with something of my own making. So learning some more and
-        sharing some more. I'm working toward a life where I can create meaningful impact while
-        maintaining autonomy and flexibility—designing both products and a life that align with my
-        values of growth, helping others, and intentional creation. <br /><br />
-        If you're building something that helps people transform, or if you value thoughtful,
-        user-centered creation, <span class="font-bold">let's connect</span>.
+        Beyond the screen, I’m dedicated to designing a life that aligns with my values of growth
+        and intentional creation. I’m a big believer in transformation—whether that’s refactoring a
+        codebase, producing music (a passion that evolved from dance to DJing), or simply sitting in
+        a coffee shop journaling to build my relationship with patience and presence.<br /><br />
+
+        I am working toward a future where I can create meaningful impact while maintaining
+        autonomy. If you are building something that helps people transform, or if you value
+        thoughtful, user-centered creation, let's connect.
       </p>
     </div>
   </div>

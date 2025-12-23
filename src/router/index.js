@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeWrapper.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -6,25 +7,35 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/AboutView.vue'),
+      component: HomeView,
     },
     {
       path: '/blog',
       name: 'blog',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/BlogView.vue'),
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
-    },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    if (to.hash) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const element = document.querySelector(to.hash)
+          if (element) {
+            resolve({
+              el: to.hash,
+              behavior: 'smooth',
+            })
+          } else {
+            resolve({ top: 0 })
+          }
+        }, 100)
+      })
+    }
+    return { top: 0 }
+  },
 })
 
 export default router
