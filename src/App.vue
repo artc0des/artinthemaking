@@ -1,8 +1,7 @@
 <script setup>
 import Nav from './components/Nav.vue'
 import Media from './components/Media.vue'
-import HomeWrapper from './views/HomeWrapper.vue'
-import Blog from './views/BlogView.vue'
+import Footer from './components/Footer.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const mouseX = ref(0)
@@ -60,6 +59,7 @@ onUnmounted(() => {
       <Nav></Nav>
     </header>
     <RouterView></RouterView>
+    <Footer></Footer>
   </div>
 </template>
 

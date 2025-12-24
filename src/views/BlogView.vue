@@ -2,7 +2,7 @@
 import BlogBG from '../assets/blog_bg.png'
 </script>
 <template>
-  <section class="pb-50" id="blog">
+  <section class="pb-150" id="blog">
     <h1 class="text-primary font-bold text-6xl text-center">Blog</h1>
     <div class="relative">
       <img class="absolute inset-0 object-cover opacity-30" :src="BlogBG" alt="" />

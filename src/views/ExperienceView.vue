@@ -2,7 +2,7 @@
 import ExperienceBG from '../assets/experience_bg.png'
 </script>
 <template>
-  <section class="pb-50" id="blog">
+  <section class="pb-30" id="blog">
     <h1 class="text-primary font-bold text-6xl text-center">Experience</h1>
     <div class="xl:relative">
       <img
@@ -240,9 +240,11 @@ import ExperienceBG from '../assets/experience_bg.png'
         </div>
       </div>
       <div class="flex justify-center">
-        <button class="border rounded-4xl text-primary text-2xl px-2 max-w-fit">
-          View Full Resume
-        </button>
+        <a href="./Arturo_Cancino_Software_Engineer_2026.pdf" target="_blank"
+          ><button class="border rounded-4xl text-primary text-2xl px-2 max-w-fit">
+            View Full Resume
+          </button></a
+        >
       </div>
     </div>
   </section>
