@@ -41,6 +41,7 @@ const updateMenuItem = (name) => {
     active.value = 'home'
   } else {
     about.value = ' About Me '
+    home.value = 'Home '
     experience.value = ' Experience '
     blog.value = ' ./Blog '
     active.value = 'blog'
@@ -245,7 +246,7 @@ onUnmounted(() => {
 
           <RouterLink
             to="/blog"
-            @click="updateMenuItem('blog'); closeMobileMenu()"
+            @click="(updateMenuItem('blog'), closeMobileMenu())"
             class="text-lettering text-xl hover:text-primary transition duration-300 py-2"
             :class="{ 'text-primary': active === 'blog' }"
           >

@@ -6,12 +6,17 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const mouseX = ref(0)
 const mouseY = ref(0)
+const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const isTouch = window.matchMedia('(pointer: coarse)').matches
+const shouldRun = !isReducedMotion && !isTouch
 const isHoveringLink = ref(false)
 
-window.addEventListener('mousemove', (e) => {
-  mouseX.value = e.clientX
-  mouseY.value = e.clientY
-})
+if (shouldRun) {
+  window.addEventListener('mousemove', (e) => {
+    mouseX.value = e.clientX
+    mouseY.value = e.clientY
+  })
+}
 
 const handleMouseEnter = () => {
   isHoveringLink.value = true
