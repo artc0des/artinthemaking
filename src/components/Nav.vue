@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
@@ -69,28 +69,59 @@ const handleNavClick = (sectionId, event) => {
 
 let observer = null
 
-onMounted(() => {
-  const sections = document.querySelectorAll('section[id], #home')
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -60% 0px',
-    threshold: 0,
+const setupObserver = () => {
+  // Disconnect existing observer if any
+  if (observer) {
+    observer.disconnect()
   }
 
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const sectionId = entry.target.id
-        updateMenuItem(sectionId)
-      }
-    })
-  }, observerOptions)
+  // Only set up observer on home page
+  if (route.path !== '/') {
+    return
+  }
 
-  sections.forEach((section) => {
-    observer.observe(section)
-  })
+  // Use a longer delay to ensure RouterView content is fully rendered
+  setTimeout(() => {
+    const sections = document.querySelectorAll('section[id], #home')
+
+    // If no sections found, retry after a short delay
+    if (sections.length === 0) {
+      setTimeout(setupObserver, 100)
+      return
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    }
+
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id
+          updateMenuItem(sectionId)
+        }
+      })
+    }, observerOptions)
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+  }, 300)
+}
+
+onMounted(() => {
+  setupObserver()
 })
+
+// Watch for route changes and reinitialize observer
+watch(
+  () => route.path,
+  () => {
+    setupObserver()
+  },
+)
 
 onUnmounted(() => {
   if (observer) {
@@ -185,7 +216,7 @@ onUnmounted(() => {
       <div
         v-if="isMobileMenuOpen"
         @click="closeMobileMenu"
-        class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+        class="fixed inset-0 bg-opacity-50 z-40 md:hidden"
       ></div>
     </Transition>
 

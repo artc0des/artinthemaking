@@ -2,6 +2,7 @@
 import Nav from './components/Nav.vue'
 import Media from './components/Media.vue'
 import Footer from './components/Footer.vue'
+import BGAnimationStars from './components/BGAnimationStars.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const mouseX = ref(0)
@@ -47,19 +48,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
-    class="pointer rounded-4xl bg-transparent border border-primary transition transform transform-3d duration-40"
-    :style="{ transform: `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)` }"
-    aria-hidden="true"
-  ></div>
-  <div
-    class="center rounded-4xl bg-accent border border-background transition transform transform-3d duration-100"
-    :class="{ 'center-expanded': isHoveringLink }"
-    :style="{ transform: `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)` }"
-    aria-hidden="true"
-  ></div>
+  <BGAnimationStars class="bg-animation"></BGAnimationStars>
   <div class="container mx-auto px-4 md:px-6">
-    <header class="flex justify-between items-center sticky top-0 py-4 md:pt-5 z-70 bg-background">
+    <header class="flex justify-between items-center sticky top-0 py-4 md:pt-5 z-70 bg-transparent">
       <Media></Media>
       <Nav></Nav>
     </header>
@@ -69,30 +60,14 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.pointer {
+.bg-animation {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
-  width: 2rem;
-  aspect-ratio: 1;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
   pointer-events: none;
-}
-.center {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 1rem;
-  aspect-ratio: 1;
-  pointer-events: none;
-  transition:
-    width 0.3s ease,
-    background-color 0.3s ease;
-}
-
-.center-expanded {
-  width: 5rem;
-  background-color: transparent;
+  overflow: hidden;
 }
 </style>
