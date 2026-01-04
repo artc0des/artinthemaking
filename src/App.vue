@@ -4,6 +4,7 @@ import Media from './components/Media.vue'
 import Footer from './components/Footer.vue'
 import BGAnimationStars from './components/BGAnimationStars.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
+import BGAnimationStarsMobile from './components/BGAnimationStarsMobile.vue'
 
 const mouseX = ref(0)
 const mouseY = ref(0)
@@ -48,7 +49,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <BGAnimationStars class="bg-animation"></BGAnimationStars>
+  <BGAnimationStars class="bg-animation hidden md:block"></BGAnimationStars>
+  <BGAnimationStarsMobile class="bg-animation md:hidden"></BGAnimationStarsMobile>
   <div class="container mx-auto px-4 md:px-6">
     <header class="flex justify-between items-center sticky top-0 py-4 md:pt-5 z-70 bg-transparent">
       <Media></Media>
