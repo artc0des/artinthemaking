@@ -13,6 +13,13 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches
 const shouldRun = !isReducedMotion && !isTouch
 const isHoveringLink = ref(false)
 
+// Responsive breakpoint detection
+const isMobile = ref(window.innerWidth < 768)
+
+const updateScreenSize = () => {
+  isMobile.value = window.innerWidth < 768
+}
+
 if (shouldRun) {
   window.addEventListener('mousemove', (e) => {
     mouseX.value = e.clientX
@@ -36,6 +43,9 @@ onMounted(() => {
     element.addEventListener('mouseenter', handleMouseEnter)
     element.addEventListener('mouseleave', handleMouseLeave)
   })
+
+  // Listen for window resize to update mobile/desktop view
+  window.addEventListener('resize', updateScreenSize)
 })
 
 onUnmounted(() => {
@@ -45,12 +55,15 @@ onUnmounted(() => {
     element.removeEventListener('mouseenter', handleMouseEnter)
     element.removeEventListener('mouseleave', handleMouseLeave)
   })
+
+  // Clean up resize listener
+  window.removeEventListener('resize', updateScreenSize)
 })
 </script>
 
 <template>
-  <BGAnimationStars class="bg-animation hidden md:block"></BGAnimationStars>
-  <BGAnimationStarsMobile class="bg-animation md:hidden"></BGAnimationStarsMobile>
+  <BGAnimationStars v-if="!isMobile" class="bg-animation"></BGAnimationStars>
+  <BGAnimationStarsMobile v-else class="bg-animation"></BGAnimationStarsMobile>
   <div class="container mx-auto px-4 md:px-6">
     <header class="flex justify-between items-center sticky top-0 py-4 md:pt-5 z-70 bg-transparent">
       <Media></Media>
@@ -71,5 +84,10 @@ onUnmounted(() => {
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
+  /* Hardware acceleration hints */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 </style>

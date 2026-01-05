@@ -26,8 +26,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- <div data-us-project="zO0LGlyIKsqrxD7ffb65" class="animation-container"></div>-->
-  <div data-us-project="zO0LGlyIKsqrxD7ffb65" class="animation-container"></div>
+  <div
+    data-us-project="zO0LGlyIKsqrxD7ffb65"
+    class="unicorn-embed animation-container"
+    data-us-scale="1"
+    data-us-dpi="1.5"
+    data-us-lazyload="true"
+    data-us-alttext="Welcome to Unicorn Studio"
+    data-us-arialabel="This is a canvas scene"
+  ></div>
 </template>
 
 <style scoped>
@@ -38,5 +45,9 @@ onMounted(() => {
   position: absolute;
   top: 0;
   left: 0;
+  /* Hardware acceleration for smooth animations */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 </style>

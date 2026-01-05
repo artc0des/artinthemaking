@@ -38,5 +38,9 @@ onMounted(() => {
   position: absolute;
   top: 0;
   left: 0;
+  /* Hardware acceleration for smooth animations */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 </style>
